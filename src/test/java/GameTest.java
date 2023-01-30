@@ -5,10 +5,18 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 class GameTest {
+
+	Game game;
+
+	@BeforeEach
+	void setup() {
+		game = new Game();
+	}
 
 	@Test
 	@DisplayName("입력받고 Car객체 배열 생성")
@@ -72,7 +80,7 @@ class GameTest {
 		cars.add(joe);
 		cars.add(na);
 		//when
-		List<Car> result = Game.rankRound(cars);
+		List<Car> result = game.rankRound(cars);
 
 		assertAll(
 			() -> assertThat(result.get(0).getName()).isEqualTo("joe"),
@@ -97,7 +105,7 @@ class GameTest {
 		sortedCars.add(joe);
 		sortedCars.add(na);
 
-		List<Car> winner = Game.selectFinalWinner(sortedCars);
+		List<Car> winner = game.selectFinalWinner(sortedCars);
 
 		assertAll(
 			() -> assertThat(winner.get(0).getName()).isEqualTo(tae.getName()),
@@ -123,7 +131,7 @@ class GameTest {
 		sortedCars.add(joe);
 		sortedCars.add(na);
 
-		List<Car> winner = Game.selectRoundWinner(sortedCars);
+		List<Car> winner = game.selectRoundWinner(sortedCars);
 
 		assertAll(
 			() -> assertThat(winner.get(0).getName()).isEqualTo(tae.getName()),
@@ -149,9 +157,9 @@ class GameTest {
 		cars.add(joe);
 		cars.add(na);
 
-		List<Car> roundWinner = Game.selectRoundWinner(Game.rankRound(cars));
+		List<Car> roundWinner = game.selectRoundWinner(game.rankRound(cars));
 		//when
-		Game.recordWinNum(roundWinner);
+		game.recordWinNum(roundWinner);
 		//then
 		assertAll(
 			() -> assertThat(tae.getWinNum()).isEqualTo(1),

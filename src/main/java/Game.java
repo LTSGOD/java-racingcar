@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 public class Game {
 	private List<Car> cars;
 
-	public static List<Car> createCars(ArrayList<String> carNames) {
+	public List<Car> createCars(ArrayList<String> carNames) {
 		return carNames.stream().map(Car::new).collect(Collectors.toList());
 	}
 
@@ -53,7 +53,7 @@ public class Game {
 			.collect(Collectors.toList());
 	}
 
-	public static List<Car> rankFinal(List<Car> cars) {
+	public List<Car> rankFinal(List<Car> cars) {
 		return cars.stream()
 			.sorted(Comparator.comparing(Car::getWinNum).reversed())
 			.collect(Collectors.toList());

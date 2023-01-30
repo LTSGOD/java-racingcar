@@ -26,7 +26,7 @@ class GameTest {
 		int num = carNames.size();
 
 		//when
-		List<Car> cars = Game.createCars(carNames);
+		List<Car> cars = game.createCars(carNames);
 
 		//then
 		assertAll(
@@ -54,7 +54,7 @@ class GameTest {
 		cars.add(joe);
 		cars.add(na);
 		//when
-		List<Car> result = Game.rankFinal(cars);
+		List<Car> result = game.rankFinal(cars);
 
 		assertAll(
 			() -> assertThat(result.get(0).getName()).isEqualTo("joe"),

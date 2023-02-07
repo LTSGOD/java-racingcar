@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import racingcar.util.ZeroToNineNumGenerator;
+import racingcar.util.RandomNumGenerator;
 
 public class RacingGame {
     private final List<Car> cars;
@@ -22,7 +22,7 @@ public class RacingGame {
 
     public void race() {
         cars.forEach(car -> {
-            car.move(new ZeroToNineNumGenerator());
+            car.move(new RandomNumGenerator());
         });
     }
 

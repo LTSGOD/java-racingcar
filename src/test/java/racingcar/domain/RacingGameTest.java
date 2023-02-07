@@ -61,7 +61,10 @@ class RacingGameTest {
         List<Car> cars = game.getCars();
         //when
         List<Car> winner = game.selectFinalWinner(game.rankFinal(cars));
-        long winnerNum = cars.stream().filter(m -> m.getPosition() == winner.get(0).getPosition()).count();
+        long winnerNum = cars.stream().filter(
+                m -> m.getPosition() == winner.get(0)
+                        .getPosition())
+                .count();
 
         assertThat(winner.size()).isEqualTo(winnerNum);
     }

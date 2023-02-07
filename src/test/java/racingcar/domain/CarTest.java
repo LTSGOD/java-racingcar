@@ -27,7 +27,7 @@ class CarTest {
     }
 
     @Test
-    @DisplayName("4미만의 숫자에 car의 안움직이는지 테스트")
+    @DisplayName("4미만의 숫자에 car가 멈추는지 테스트")
     void stop() {
 
         car.move(new StopNumGenerator());
